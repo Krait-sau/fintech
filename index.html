@@ -1,0 +1,131 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Enhanced Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title animate__animated animate__fadeInDown">
+            FinTech Club
+        </h1>
+        <div class="auto-typer-container">
+            <p class="hero-subtitle animate__animated animate__fadeIn">
+                We are <span id="auto-typer" class="gradient-text"></span>
+            </p>
+        </div>
+        <p class="hero-description animate__animated animate__fadeIn">
+            Join the revolution at the intersection of finance and technology. 
+            We're building the next generation of financial innovators.
+        </p>
+        <div class="hero-buttons animate__animated animate__fadeInUp">
+            <a href="{{ url_for('join') }}" class="btn btn-primary ">Join Our Club</a>
+            <a href="{{ url_for('events') }}" class="btn btn-secondary">View Events</a>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced About Section -->
+<section class="about">
+    <div class="container">
+        <div class="section-header animate__animated animate__fadeIn">
+            <h2 class="gradient-text">About Us</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text enhanced-card">
+                <h3>Shaping the Future of Finance</h3>
+                <p>We are a dynamic community of students, innovators, and future leaders passionate about transforming the financial landscape through technology.</p>
+                <div class="stats">
+                    <div class="stat floating">
+                        <h3 data-target="200">0</h3>
+                        <p>Members</p>
+                    </div>
+                    <div class="stat floating" style="animation-delay: 0.2s">
+                        <h3 data-target="50">0</h3>
+                        <p>Events</p>
+                    </div>
+                    <div class="stat floating" style="animation-delay: 0.4s">
+                        <h3 data-target="15">0</h3>
+                        <p>Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Events Section -->
+<section class="events">
+    <div class="container">
+        <div class="section-header animate__animated animate__fadeIn">
+            <h2 class="gradient-text">Upcoming Events</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="events-grid">
+            {% for event in events %}
+            <div class="event-card enhanced-card">
+                <div class="event-date">
+                    <span class="date-day">{{ event.date.split('-')[2] }}</span>
+                    <span class="date-month">{{ event.date.split('-')[1] }}</span>
+                </div>
+                <div class="event-content">
+                    <h3>{{ event.title }}</h3>
+                    <div class="event-meta">
+                        <p><i class="far fa-clock"></i> {{ event.time }}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ event.location }}</p>
+                    </div>
+                    <p>{{ event.description }}</p>
+                    <a href="#" class="event-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Team</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="team-grid">
+            {% for member in team %}
+            <div class="team-card">
+                <div class="member-image">
+                    {% if member.image %}
+                    <img src="{{ url_for('static', filename='images/team/' + member.image) }}" alt="{{ member.name }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="member-fallback" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    {% else %}
+                    <div class="member-fallback">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="member-info">
+                    <h3>{{ member.name }}</h3>
+                    <p class="member-role">{{ member.role }}</p>
+                    <p>{{ member.bio }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content enhanced-card">
+            <h2>Ready to Join the FinTech Revolution?</h2>
+            <p>Become a member today and gain access to exclusive events, workshops, and networking opportunities with industry leaders.</p>
+            <a href="{{ url_for('join') }}" class="btn btn-primary">Join Now <i class="fas fa-rocket"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

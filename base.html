@@ -1,0 +1,97 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FinTech Club - Innovation in Finance & Technology{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Enhanced Threads Background -->
+    <div id="threads-background"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Enhanced Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="{{ url_for('index') }}" class="nav-logo floating">
+                    <i class="fas fa-chart-line gradient-text"></i>
+                    <span class="gradient-text">FinTech Club</span>
+                </a>
+                <div class="nav-menu">
+                    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                    <a href="{{ url_for('events') }}" class="nav-link">Events</a>
+                    <a href="{{ url_for('join') }}" class="nav-link">Join</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message animate__animated animate__slideInRight">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Main Content -->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Enhanced Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3 class="gradient-text">FinTech Club</h3>
+                    <p>Bridging finance and technology through education, innovation, and community.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="floating"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="floating" style="animation-delay: 0.2s"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="floating" style="animation-delay: 0.4s"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="floating" style="animation-delay: 0.6s"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> contact@fintechclub.edu</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Business School, Room 305</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FinTech Club. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/threads-background-enhanced.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auto-typer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enhanced-animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    <script>
+        // Initialize enhanced background
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ThreadsBackground !== 'undefined') {
+                new ThreadsBackground('threads-background');
+            }
+        });
+    </script>
+</body>
+</html>

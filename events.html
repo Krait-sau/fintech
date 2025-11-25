@@ -1,0 +1,46 @@
+<!-- templates/events.html -->
+{% extends "base.html" %}
+
+{% block title %}Events - FinTech Club{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Events</h1>
+        <p>Upcoming workshops, talks, and networking events</p>
+    </div>
+</section>
+
+<section class="events-list">
+    <div class="container">
+        {% for event in events %}
+        <div class="event-detail">
+            <div class="event-header">
+                <div class="event-date-large">
+                    <span class="date-day">{{ event.date.split('-')[2] }}</span>
+                    <span class="date-month">{{ event.date.split('-')[1] }}</span>
+                    <span class="date-year">{{ event.date.split('-')[0] }}</span>
+                </div>
+                <div class="event-info">
+                    <h2>{{ event.title }}</h2>
+                    <div class="event-meta">
+                        <p><i class="far fa-clock"></i> {{ event.time }}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ event.location }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="event-description">
+                <p>{{ event.description }}</p>
+                <a href="#" class="btn btn-outline">RSVP for This Event</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+        <div class="events-archive">
+            <h2>Past Events</h2>
+            <p>Missed an event? Check out our event recordings and materials.</p>
+            <a href="#" class="btn btn-secondary">View Event Archive</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

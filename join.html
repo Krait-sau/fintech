@@ -1,0 +1,195 @@
+<!-- templates/join.html -->
+{% extends "base.html" %}
+
+{% block title %}Join - FinTech Club{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Join Our Club</h1>
+        <p>Become part of our growing FinTech community</p>
+    </div>
+</section>
+
+<section class="join-form">
+    <div class="container">
+        <div class="form-container">
+    <div class="form-header">
+        <h2>Membership Application</h2>
+        <p>Fill out the form below to apply for membership. There are no fees to join.</p>
+    </div>
+    
+    <form method="POST" action="{{ url_for('join') }}">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+        </div>
+        
+        <div class="form-group">
+            <label for="major">Major/Field of Study</label>
+            <input type="text" id="major" name="major" required placeholder="e.g., Computer Science, Finance">
+        </div>
+        
+        <div class="form-group">
+            <label for="interests">FinTech Interests</label>
+            <textarea id="interests" name="interests" rows="4" placeholder="Blockchain, algorithmic trading, digital payments, etc."></textarea>
+        </div>
+        
+        <div class="form-submit">
+            <button type="submit" class="submit-btn">
+                Submit Application
+            </button>
+        </div>
+    </form>
+</div>
+        
+        <!-- Enhanced Benefits Section -->
+<section class="benefits">
+    <div class="container">
+        <div class="section-header">
+            <h2>Membership Benefits</h2>
+            <p class="benefits-subtitle">Join our vibrant community and unlock exclusive opportunities in FinTech</p>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="benefits-grid">
+            <!-- Learning & Education -->
+            <div class="benefit-card learning">
+                <div class="benefit-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Workshops & Seminars</h3>
+                <p>Learn from industry experts through hands-on workshops and exclusive seminars with chief guests from top financial institutions.</p>
+            </div>
+
+            <div class="benefit-card learning">
+                <div class="benefit-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Field Trips</h3>
+                <p>Visit leading FinTech companies, trading floors, and financial institutions to gain real-world insights.</p>
+            </div>
+
+            <!-- Competitive Events -->
+            <div class="benefit-card competitive">
+                <div class="benefit-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Trading Tournaments</h3>
+                <p>Compete in paper trading competitions using virtual money. Test your strategies risk-free and climb the leaderboards.</p>
+            </div>
+
+            <div class="benefit-card competitive">
+                <div class="benefit-icon">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <h3>Battles & Contests</h3>
+                <p>Participate in algorithmic trading battles, investment challenges, and financial strategy competitions.</p>
+            </div>
+
+            <!-- Gaming & Interactive -->
+            <div class="benefit-card gaming">
+                <div class="benefit-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>FinTech Games</h3>
+                <p>Engage in interactive games that simulate market dynamics, investment scenarios, and financial decision-making.</p>
+            </div>
+
+            <div class="benefit-card gaming">
+                <div class="benefit-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Puzzle Solving</h3>
+                <p>Challenge your mind with financial puzzles, cryptographic challenges, and quantitative problem-solving games.</p>
+            </div>
+
+            <!-- Simulations -->
+            <div class="benefit-card gaming">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Market Simulations</h3>
+                <p>Experience realistic trading simulations, portfolio management exercises, and risk assessment scenarios.</p>
+            </div>
+
+            <!-- Quizzes & Knowledge -->
+            <div class="benefit-card competitive">
+                <div class="benefit-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>FinTech Quizzes</h3>
+                <p>Test your knowledge with weekly quizzes on blockchain, cryptocurrencies, algorithmic trading, and financial markets.</p>
+            </div>
+
+            <!-- Monthly Rewards & Contests -->
+            <div class="benefit-card rewards">
+                <div class="benefit-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Monthly Contests</h3>
+                <p>Win exciting rewards every month through various competitions, challenges, and participation-based contests.</p>
+            </div>
+
+            <div class="benefit-card rewards">
+                <div class="benefit-icon">
+                    <i class="fas fa-laugh"></i>
+                </div>
+                <h3>Meme Contests</h3>
+                <p>Showcase your creativity in our monthly FinTech meme competitions. Best memes win special prizes!</p>
+            </div>
+
+            <!-- Networking -->
+            <div class="benefit-card networking">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Expert Networking</h3>
+                <p>Connect with industry professionals, alumni in FinTech, and like-minded students passionate about finance and technology.</p>
+            </div>
+
+            <div class="benefit-card events">
+                <div class="benefit-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Exclusive Events</h3>
+                <p>Get access to member-only events, hackathons, and networking sessions with top FinTech companies.</p>
+            </div>
+        </div>
+
+        <!-- Benefits Summary -->
+        <div class="benefits-summary">
+            <div class="summary-card">
+                <h3>Why Join Our FinTech Club?</h3>
+                <div class="summary-points">
+                    <div class="summary-point">
+                        <i class="fas fa-rocket"></i>
+                        <span>Hands-on experience with real FinTech tools</span>
+                    </div>
+                    <div class="summary-point">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Build your professional network</span>
+                    </div>
+                    <div class="summary-point">
+                        <i class="fas fa-award"></i>
+                        <span>Compete and win amazing prizes</span>
+                    </div>
+                    <div class="summary-point">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Learn cutting-edge financial technologies</span>
+                    </div>
+                    <div class="summary-point">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Career opportunities in top FinTech firms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
